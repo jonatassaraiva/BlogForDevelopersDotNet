@@ -36,7 +36,6 @@ Quem utiliza
 
 BackLog
 ----------------
-* Envio de e-mail
 * RSS Feed
 * Conceito de pagina
 * Conceito de conteúdo
