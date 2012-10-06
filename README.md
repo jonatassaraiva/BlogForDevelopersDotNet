@@ -1,7 +1,7 @@
 BlogForDevelopersDotNet
 =======================
 
-Engine para criação de blog. Neste um projeto aplico os conceitos de Domain Driven Design, ASP.NET MVC 4, persistência de dados em XML e [Visual Studio Express 2012 for Web](http://www.microsoft.com/visualstudio/eng/downloads#d-2012-express).
+Engine para criação de blog. Neste um projeto aplico os conceitos de Domain Driven Design, ASP.NET MVC 3, persistência de dados em XML e [Visual Studio Express 2012 for Web](http://www.microsoft.com/visualstudio/eng/downloads#d-2012-express).
 
 Como utilizar
 -------------
