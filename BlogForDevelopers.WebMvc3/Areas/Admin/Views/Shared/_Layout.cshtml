@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required Stylesheets -->
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/reset.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/text.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/fluid.css")" media="screen" />
+
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/core/core.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/core/panels.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/core/table.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/core/button.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/core/form.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/core/error.css")" media="screen" />
+
+
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/icons/24x24.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/jui/jquery.ui.css")" media="screen" />
+	<!-- Theme Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/mws.theme.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/site.css")" media="screen" />
+	@RenderSection("css", false)
+
+	<!-- JavaScript Plugins -->
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.0.min.js")"></script>
+
+	<!-- jQuery-UI Dependent Scripts -->
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.23.min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Content/js/jquery.ui.touch-punch.min.js")"></script>
+
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Content/plugins/flot/excanvas.min.js")"></script>
+	<![endif]-->
+
+	<!-- Core Script -->
+	<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Content/js/jquery.mousewheel-min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Content/js/mws.js")"></script>
+	@RenderSection("scripts", false)
+
+	<title>Admin - Blog for Developers</title>
+
+</head>
+
+<body>
+
+	<!-- Header -->
+	<div id="mws-header" class="clearfix">
+		<!-- User Tools (notifications, logout, profile, change password) -->
+		<div id="mws-user-tools" class="clearfix">
+
+			<!-- User Information and functions section -->
+			<div id="mws-user-info" class="mws-inset">
+
+				<!-- User Photo -->
+				<div class="icons">
+					<div class="mws-i-24 i-user-2"></div>
+				</div>
+
+				<!-- Username and Functions -->
+				<div id="mws-user-functions">
+					<div id="mws-username">
+						Admin - Blog For Developers
+					</div>
+					<ul>
+						<li><a href="/admin/account/logout">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Start Main Wrapper -->
+	<div id="mws-wrapper">
+
+		<!-- Necessary markup, do not remove -->
+		<div id="mws-sidebar-stitch"></div>
+		<div id="mws-sidebar-bg"></div>
+
+		<!-- Sidebar Wrapper -->
+		<div id="mws-sidebar">
+
+			<!-- Main Navigation -->
+			<div id="mws-navigation">
+				<ul>
+					<li>
+						<a href="javascript:void(0);" class="mws-i-24 i-documents-1">Posts</a>
+						<ul style="display: none;" class="closed">
+							<li><a href="/admin/post">All posts</a></li>
+							<li><a href="/admin/post/create">Create</a></li>
+							<li style="display: none"><a href="/admin/post/edit">edit</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Main Container Start -->
+		<div id="mws-container" class="clearfix" style="min-width: 830px;">
+
+			<!-- Inner Container Start -->
+			<div class="container">
+
+				@RenderBody()
+
+			</div>
+			<!-- Inner Container End -->
+
+
+			<!-- Footer -->
+			<div id="mws-footer">
+				Copyright Blog For Developers .NET 2012. All Rights Reserved.
+			</div>
+
+		</div>
+		<!-- Main Container End -->
+	</div>
+
+</body>
+</html>

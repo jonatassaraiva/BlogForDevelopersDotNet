@@ -1,0 +1,102 @@
+﻿@model IEnumerable<BlogForDevelopers.Domain.Entities.Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";	
+}
+
+@section css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/icons/16x16.css")" media="screen" />
+}
+
+@section scripts{
+    <script>
+        var currentForm;
+
+        $(function () {
+            $('#mws-jui-dialog-remove-post').dialog({
+                autoOpen: false,
+                title: 'Remove post?',
+                width: 400,
+                modal: true,
+                resizable: false,
+                buttons: {
+                    "Yes": function () {
+                        currentForm.submit();
+                    },
+                    "No": function () {
+                        $(this).dialog('close');
+                    }
+                }
+            });
+
+            $('form.formRemove').submit(function () {
+                currentForm = this;
+                $('#mws-jui-dialog-remove-post').dialog('open');
+                return false;
+            });
+        });
+    </script>
+}
+
+<!-- dialog for remove post -->
+<div id="mws-jui-dialog-remove-post" style="display: none">
+	<div class="mws-dialog-inner">
+        Confirm the deletion of the Post?
+	</div>
+</div>
+
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-table-1">List of posts</span>
+    </div>
+
+    <div class="mws-panel-body">
+        <table class="mws-table">
+            <thead>
+                <tr>
+                    <th title="Published" style="width: 60px">Published</th>
+                    <th title="Title">Title</th>
+                    <th title="TAgs">Tags</th>
+                    <th title="Created on" style="width: 60px">Created on</th>
+                    <th title="" style="width: 40px"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var post in Model)
+                {
+                    <tr class="gradeX">
+
+                        <td>
+                            <ul id="icons-16">
+                                @if (@post.Published)
+                                {
+                                    <li title="Published" class="mws-ic-16 ic-accept"></li>
+                                }
+                                else
+                                {
+                                    <li title="Not published" class="mws-ic-16 ic-cross"></li>
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            <a href="post/edit/@post.Id">@post.Title </a>
+                        </td>
+                        <td>
+                            @BlogForDevelopers.WebMvc3.App_Helpers.TagHelper.GetContent(post.Tags)
+                        </td>
+                        <td>@post.DateCreated</td>
+                        <td>
+                            <form class="formRemove" action="post/remove" method="post">
+                                <input type="hidden" name="id" value="@post.Id" />
+                                <div class="mws-button-row">
+                                    <input type="submit" class="mws-button red" value="Remove">
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

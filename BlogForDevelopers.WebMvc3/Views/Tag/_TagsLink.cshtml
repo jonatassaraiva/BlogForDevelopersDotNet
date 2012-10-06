@@ -1,0 +1,6 @@
+﻿@model IEnumerable<BlogForDevelopers.Domain.ObjectValue.Tag>
+
+@foreach (var tag in Model)
+{
+	<a href="/tag/@tag.Name.ToLower()">@tag.Name</a> 
+}

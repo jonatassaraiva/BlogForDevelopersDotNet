@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Post Id="834eba70-efa0-4854-a8ae-789eb7b596d6" Published="true" EnableComment="false" DatePublished="2012-09-27T19:07:03.8721658-03:00" DateCreated="2012-09-27T19:06:59.8799375-03:00">
+    <Title>Criando HTML Helper no ASP.NET MVC 3 - Parte 2</Title>
+    <TitleUrl>criando-html-helper-no-asp-net-mvc-3-parte-2</TitleUrl>
+    <Content>&lt;p&gt;&lt;img style="float: left;" src="/App_Resources/Images/09-27-2012_22-06-11_Syntax-Razor.png" alt="" width="187" height="140" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;Ol&amp;aacute; senhoras e senhores, &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;neste post vamos continuar trabalhando com a cria&amp;ccedil;&amp;atilde;o de &lt;em&gt;&lt;strong&gt;Html Helpers&lt;/strong&gt;&lt;/em&gt;. No primeiro post sobre este assunto, Parte 1, criamos um &lt;em&gt;&lt;strong&gt;Html Helper&lt;/strong&gt; &lt;/em&gt;que Trunca uma palavra usando &lt;em&gt;&lt;strong&gt;Extension Method&lt;/strong&gt;&lt;/em&gt;.&lt;br /&gt;&lt;br /&gt;Agora vamos criar a mesma l&amp;oacute;gica usando &lt;em&gt;&lt;strong&gt;Razor Declarative Syntax&lt;/strong&gt;&lt;/em&gt;. Para isso altere o c&amp;oacute;digo da vis&amp;atilde;o &lt;em&gt;~/Views/Home/Index.cshtml&lt;/em&gt;, que criamos na primeira parte, com o c&amp;oacute;digo da listagem abaixo.&lt;/span&gt;&lt;/p&gt;
+&lt;pre class="brush: csharp; fontsize: 100; first-line: 1; "&gt;@{
+    ViewBag.Title = "Home Page";
+}
+ 
+@helper Truncar(string texto, int tamanho)
+{
+    if (texto.Length &amp;lt;= tamanho) {
+        @texto
+    }
+    else {
+        @texto.Substring(0, tamanho)&amp;lt;text&amp;gt;...&amp;lt;/text&amp;gt;
+    }
+}
+ 
+&amp;lt;h2&amp;gt;@Truncar((string)ViewBag.Message, 8)&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;
+    To learn more about ASP.NET MVC visit
+    &amp;lt;a href="http://asp.net/mvc" title="ASP.NET MVC Website"&amp;gt;http://asp.net/mvc&amp;lt;/a&amp;gt;.
+&amp;lt;/p&amp;gt;&lt;/pre&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;Usando a sintaxe do Razor podemos criar m&amp;eacute;todos que trabalhem diretamente com os elementos &lt;strong&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/strong&gt;. &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;Rode a aplica&amp;ccedil;&amp;atilde;o e o resultado deve ser algo parecido com a imagem abaixo. &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;&lt;img style="display: block; margin-left: auto; margin-right: auto;" src="/App_Resources/Images/09-27-2012_22-10-56_usando-html-helper-parte-2.png" alt="" /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;Para reutilizar este m&amp;eacute;todo, vamos mover o c&amp;oacute;digo do m&amp;eacute;todo Truncar para dentro de um arquivo que suporta a sintaxe Razor.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span style="font-size: medium;"&gt;Adicione uma nova pasta na solu&amp;ccedil;&amp;atilde;o com o nome &lt;strong&gt;&lt;em&gt;App_Code&lt;/em&gt;&lt;/strong&gt;. Figura abaixo.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img style="display: block; margin-left: auto; margin-right: auto;" src="/App_Resources/Images/09-27-2012_22-21-13_html-helper-razor-parte-2.jpg" alt="" width="353" height="352" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;Adicione um arquivo do tipo &lt;strong&gt;&lt;em&gt;CSHTML (MVC 3 View Page)&lt;/em&gt;&lt;/strong&gt;, dentro da pasta criada, com o nome &lt;strong&gt;&lt;em&gt;TruncaRazorHtmlHelper&lt;/em&gt;&lt;/strong&gt;. Com este arquivo conseguimos trabalhar com a sintaxe do Razor.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img style="display: block; margin-left: auto; margin-right: auto;" src="/App_Resources/Images/09-27-2012_22-22-45_html-helper-razor-parte-2-1.jpg" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: small;"&gt;&amp;nbsp;&lt;span style="font-size: medium;"&gt;E no arquivo criado, remova as tags HTML e adicione o c&amp;oacute;digo da listagem abaxio.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;pre class="brush: csharp; fontsize: 100; first-line: 1; "&gt;@helper Truncar(string texto, int tamanho)
+{
+    if (texto.Length &amp;lt;= tamanho) {
+        @texto
+    }
+    else {
+        @texto.Substring(0, tamanho)&amp;lt;text&amp;gt;...&amp;lt;/text&amp;gt;
+    }
+}&lt;/pre&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;Para fin&amp;aacute;lizar, altere o c&amp;oacute;digo da vis&amp;atilde;o &lt;strong&gt;&lt;em&gt;~/Views/Home/Index.cshtml&lt;/em&gt;&lt;/strong&gt; com o c&amp;oacute;digo da listagem abaixo.&lt;/span&gt;&lt;/p&gt;
+&lt;pre class="brush: csharp; fontsize: 100; first-line: 1; "&gt;@{
+    ViewBag.Title = "Home Page";
+}
+ 
+&amp;lt;h2&amp;gt;@TruncaRazorHtmlHelper.Truncar((string)ViewBag.Message, 8)&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;
+    To learn more about ASP.NET MVC visit
+    &amp;lt;a href="http://asp.net/mvc" title="ASP.NET MVC Website"&amp;gt;http://asp.net/mvc&amp;lt;/a&amp;gt;.
+&amp;lt;/p&amp;gt;&lt;/pre&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;Rode a aplica&amp;ccedil;&amp;atilde;o e note que o Html Helper continua funcionando.&lt;br /&gt;&lt;br /&gt;Com a parte 1 e a parte 2 sobre, Criando HTML Helper no ASP.NET MVC 3, vimos duas formas de criar Html Helpers com um exemplo bem simples. Em um pr&amp;oacute;ximo post sobre este assunto vamos criar um Html Helper mais complexo.&lt;br /&gt;&lt;br /&gt;Abs,&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: small;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;</Content>
+    <Tags>
+      <Tag>HTML Helpers</Tag>
+      <Tag>MVC 3</Tag>
+    </Tags>
+    <Comments />
+  </Post>
+</Root>

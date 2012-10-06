@@ -1,0 +1,122 @@
+﻿@{
+	ViewBag.Title = "Index";
+	ViewBag.Background = "#004050";
+	ViewBag.MetroScroll = "metro-scroll mouse-normal";
+	ViewBag.ShowMessageFooter = false;	
+}
+
+@using BlogForDevelopers.WebMvc3.App_Code
+
+
+@section javascript{
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+
+	<script type="text/javascript">
+		$(function () {
+			$("#formContact").validate({
+				rules: {
+					name: "required",
+					email: "required",
+					message: "required"
+				},
+				messages: {
+					name: "",
+					email: "",
+					message: ""
+				}
+			});
+		});
+
+	</script>
+}
+
+
+
+<div class="metro-sections mouse-normal">
+
+	<div class="metro-section size1">
+		<div class="tile @ClassCssBackgroundColor.Orange">
+			<div class="tile-icon-large">
+				<img src="@Url.Content("~/Content/img/mail-128.png")">
+			</div>
+			<div class="tile-label">E-mail</div>
+		</div>
+
+		@if (ViewBag.Sucess != null && ViewBag.Sucess)
+  {
+
+			<div class="tile @ClassCssBackgroundColor.Green">
+				<div class="tile-announce">
+					<div class="announce-content">
+						<img src="@Url.Content("~/Content/img/ok-96.png")">
+					</div>
+					<div class="announce-description">
+						<div class="text" style="font-size: 0.9em">Messagem envida com sucesso</div>
+					</div>
+				</div>
+			</div>
+  }
+
+	</div>
+
+
+
+
+	<div class="metro-section size3">
+		<form id="formContact" action="/contact" method="post" style="margin-top: 20px;" class="metro-form">
+			<div class="frame size3">
+				<div style="width: 100%" class="metro-form-control">
+					<h4>Nome</h4>
+					<div class="metro-text-box">
+						<input tabindex="1" type="text" name="name" />
+						<span class="helper"></span>
+					</div>
+				</div>
+
+				<div style="width: 100%" class="metro-form-control">
+					<h4>E-mail</h4>
+					<div class="metro-text-box">
+						<input tabindex="2" type="email" name="email" />
+						<span class="helper"></span>
+					</div>
+				</div>
+
+				<div style="width: 100%" class="metro-form-control">
+					<h4>Mensagem</h4>
+					<div class="metro-text-area">
+						<textarea tabindex="3" rows="5" name="message"></textarea>
+						<span class="helper"></span>
+					</div>
+				</div>
+
+				<div style="width: 100%; text-align: right;">
+					<input type="submit" value="Enviar" class="metro-button default" style="margin-right: 0px" />
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="metro-section size1">
+		<a href="http://twitter.com/jonatassaraiva" target="_blank" class="tile">
+			<div class="tile-icon-large">
+				<img src="@Url.Content("~/Content/img/twitter-96.png")">
+			</div>
+			<div class="tile-label">Twitter</div>
+		</a>
+
+		<a  href="http://br.linkedin.com/in/jonatassaraiva" target="_blank" class="tile @ClassCssBackgroundColor.BlueDark">
+			<div class="tile-icon-large">
+				<img src="@Url.Content("~/Content/img/linked-96.png")">
+			</div>
+			<div class="tile-label">Linkedin</div>
+		</a>
+
+		<a  href="https://github.com/jonatassaraiva" target="_blank" class="tile @ClassCssBackgroundColor.Black">
+			<div class="tile-icon-large">
+				<img src="@Url.Content("~/Content/img/github_150.png")" style="width:150px; height:150px; margin-top: -20px">
+			</div>
+			<div class="tile-label">GitHub</div>
+		</a>
+	</div>
+
+</div>

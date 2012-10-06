@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Post Id="6db3c056-496d-492e-8282-4c86d34d2e59" Published="true" EnableComment="true" DatePublished="2012-09-07T21:50:42.0020922-03:00" DateCreated="2012-09-07T21:50:42.0020922-03:00">
+    <Title>Unit teste Insert - 1</Title>
+    <Content>Content post, post, postpostpostpostpost post &lt;b/&gt; &lt;b&gt; &lt;a herf="www.jonatassariva.net"&gt; terra &lt;/a&gt;</Content>
+    <Tags>
+      <Tag>Unit Test</Tag>
+      <Tag>Blog</Tag>
+      <Tag>Repository</Tag>
+    </Tags>
+    <Comments>
+      <Comment Id="bd275953-0c0a-4083-a31a-6c0d37ff35de" DateCreated="2012-09-07T21:50:42.0020922-03:00">
+        <Name>One Unit Test</Name>
+        <Email>OneUnit@Test.com</Email>
+        <Content>One Unit Test Unit Test</Content>
+      </Comment>
+      <Comment Id="5dbdc188-0c37-493a-8fd5-141d5ad36b2a" DateCreated="2012-09-07T21:50:42.0020922-03:00">
+        <Name>Two Unit Test</Name>
+        <Email>TwoUnit@Test.com</Email>
+        <Content>Two Unit Test Unit Test</Content>
+      </Comment>
+    </Comments>
+  </Post>
+</Root>

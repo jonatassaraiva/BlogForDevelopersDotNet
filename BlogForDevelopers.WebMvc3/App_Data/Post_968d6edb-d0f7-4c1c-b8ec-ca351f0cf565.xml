@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Post Id="968d6edb-d0f7-4c1c-b8ec-ca351f0cf565" Published="true" EnableComment="false" DatePublished="2012-09-25T09:00:57.514657-03:00" DateCreated="2012-09-25T09:00:57.514657-03:00">
+    <Title>Criando HTML Helper no ASP.NET MVC 3 - Parte 1</Title>
+    <TitleUrl>criando-html-helper-no-asp-net-mvc-3-parte-1</TitleUrl>
+    <Content>&lt;p&gt;&amp;nbsp;&lt;img style="float: left;" src="/App_Resources/Images/09-27-2012_16-16-36_asp.net-razor-view-engine-mvc3.jpg" alt="" width="199" height="169" /&gt;&lt;/p&gt;
+&lt;p style="text-align: justify;"&gt;&lt;span style="font-size: medium;"&gt;Ol&amp;aacute; senhoras e senhores, &lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align: justify;"&gt;&lt;span style="font-size: medium;"&gt;neste post vamos falar sobre criar/extender &lt;em&gt;&lt;strong&gt;HTML Helpers&lt;/strong&gt;&lt;/em&gt; no ASP.NET MVC 3.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align: justify;"&gt;&lt;span style="font-size: medium;"&gt;Muitas vezes acabamos gerando o mesmo bloco de HTML repetidamente em algumas Views. Duplicando l&amp;oacute;gicas, elementos HTML e tags Razor, al&amp;eacute;m de ser tedioso repetir, estamos propensos a erros. E se voc&amp;ecirc; precisar fazer altera&amp;ccedil;&amp;otilde;es, voc&amp;ecirc; acaba fazendo em v&amp;aacute;rios lugares. &lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align: justify;"&gt;&lt;span style="font-size: medium;"&gt;Felizmente, a ASP.NET MVC fornece um mecanismo para resolver este problema, onde &amp;eacute; possivel criar/extender os HTML Helpers do ASP.NET MVC.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align: justify;"&gt;&lt;span style="font-size: medium;"&gt;Inicialmente vamos criar um HTML Helper usando &lt;em&gt;&lt;strong&gt;Extension Method&lt;/strong&gt;&lt;/em&gt; para o tipo &lt;strong&gt;&lt;em&gt;HtmlHelper&lt;/em&gt;&lt;/strong&gt;. Para apresentar de forma simples a cria&amp;ccedil;&amp;atilde;o de um HTML Helper vamos criar um &lt;em&gt;Helper&lt;/em&gt; que trunca um texto.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align: justify;"&gt;&lt;span style="font-size: medium;"&gt;Crie um projeto ASP.NET MVC 3 com Razor e adicione ao projeto uma pasta com o nome de &lt;strong&gt;&lt;em&gt;Helpers&lt;/em&gt; &lt;/strong&gt;e adicione uma classe com o nome de &lt;strong&gt;TruncaHtmlHelper&lt;/strong&gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img style="display: block; margin-left: auto; margin-right: auto;" src="/App_Resources/Images/09-25-2012_11-59-18_html-helper-01.png" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;Na classe criada adcione o codigo da listagem abixo:&lt;/span&gt;&lt;/p&gt;
+&lt;pre class="brush: csharp; fontsize: 100; first-line: 1; "&gt;public static class TruncaHtmlHelper
+{
+	public static string Truncar(this HtmlHelper htmlHelper, string texto, int tamanho)
+	{
+		if (texto.Length &amp;lt;= tamanho)
+			return texto;
+		else
+			return string.Format("{0} ...", texto.Substring(0,tamanho));
+	} 
+}&lt;/pre&gt;
+&lt;p style="text-align: justify;"&gt;&lt;span style="font-size: medium;"&gt;&lt;span style="text-decoration: underline;"&gt;Extension method&lt;/span&gt; ou m&amp;eacute;todos de extens&amp;atilde;o, permitem que voc&amp;ecirc; "adicione" m&amp;eacute;todos para tipos existentes sem criar um novo tipo derivado, recompilar, ou modificar o tipo original. M&amp;eacute;todos de extens&amp;atilde;o s&amp;atilde;o definidos como est&amp;aacute;ticos, mas s&amp;atilde;o chamados usando a sintaxe m&amp;eacute;todo de inst&amp;acirc;ncia. Seu primeiro par&amp;acirc;metro especifica que tipo o m&amp;eacute;todo opera, no nosso caso HtmlHelper, e o par&amp;acirc;metro &amp;eacute; precedido pelo modificador &lt;strong&gt;this&lt;/strong&gt;. M&amp;eacute;todos de extens&amp;atilde;o s&amp;atilde;o acess&amp;iacute;veis somente quando voc&amp;ecirc; explicitamente importar o namespace no seu c&amp;oacute;digo-fonte.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align: justify;"&gt;&lt;span style="font-size: medium;"&gt;Para utilizar nosso Truncar, basta adicionar uma refer&amp;ecirc;ncia ao mesmo no contexto em que ser&amp;aacute; utilizado. A listagem abaixo apresenta a utiliza&amp;ccedil;&amp;atilde;o na &lt;strong&gt;&lt;em&gt;View&lt;/em&gt; &lt;/strong&gt;&lt;em&gt;Index&lt;/em&gt; da &lt;em&gt;&lt;strong&gt;Controller&lt;/strong&gt; Home&lt;/em&gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;pre class="brush: csharp; fontsize: 100; first-line: 1; "&gt;@{
+    ViewBag.Title = "Home Page";
+}
+ 
+@using CriandoHtmlHelper.Helpers;
+ 
+&amp;lt;h2&amp;gt;@Html.Truncar((string)ViewBag.Message, 8)&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;
+    To learn more about ASP.NET MVC visit
+    &amp;lt;a href="http://asp.net/mvc" title="ASP.NET MVC Website"&amp;gt;http://asp.net/mvc&amp;lt;/a&amp;gt;.
+&amp;lt;/p&amp;gt;&lt;/pre&gt;
+&lt;p style="text-align: justify;"&gt;&lt;span style="font-size: medium;"&gt;OBS: A linha 5 refer&amp;ecirc;ncia o m&amp;eacute;todo de extens&amp;atilde;o e na linha 7 o Truncar &amp;eacute; utilizado com a inst&amp;acirc;ncia Html do HtmlHelper.&lt;br /&gt;&lt;br /&gt;Rode a aplica&amp;ccedil;&amp;atilde;o e o resulta que obter&amp;aacute; &amp;eacute; parecido com o da imagem abaixo.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img style="display: block; margin-left: auto; margin-right: auto;" src="/App_Resources/Images/09-27-2012_21-53-54_usando-html-helper.png" alt="" /&gt;&lt;/p&gt;
+&lt;p style="text-align: justify;"&gt;&lt;span style="font-size: medium;"&gt;Na segunda parte deste assunto, vamos criar este mesmo &lt;em&gt;&lt;strong&gt;Html Helper&lt;/strong&gt;&lt;/em&gt; usando&lt;em&gt;&lt;strong&gt; Razor Declarative @helper sytnax&lt;/strong&gt;&lt;/em&gt;.&lt;br /&gt;&lt;br /&gt;Abs,&lt;/span&gt;&lt;/p&gt;</Content>
+    <Tags>
+      <Tag>MVC 3</Tag>
+      <Tag>HTML Helpers</Tag>
+    </Tags>
+    <Comments />
+  </Post>
+</Root>

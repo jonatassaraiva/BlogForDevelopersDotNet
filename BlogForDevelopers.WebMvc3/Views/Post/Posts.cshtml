@@ -1,0 +1,14 @@
+﻿@model IEnumerable<BlogForDevelopers.Domain.Entities.Post>
+
+@using BlogForDevelopers.WebMvc3.App_Code
+
+@{
+	ViewBag.Title = "Index";
+	ViewBag.Background = "#cccccc";
+	ViewBag.MetroScroll = "metro-scroll";
+	ViewBag.ShowMessageFooter = true;	
+	ViewBag.TitleMetroSection = "All posts";
+}
+
+
+@Html.Partial("_MetroPosts", Model)

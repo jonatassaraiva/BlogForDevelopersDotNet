@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BlogForDevelopers.Domain.Entities.Post>
+
+@using BlogForDevelopers.WebMvc3.App_Code
+
+<div class="metro-sections">
+	<h3>@ViewBag.TitleMetroSection</h3>
+
+	@{
+		int rowPerPage = 12;
+
+		int page = 1;
+
+		int totalPages = (int)(Model.Count() / rowPerPage);
+
+		for (int i = 0; i <= totalPages; i++)
+		{
+			var posts = Model
+							.Skip((page - 1) * rowPerPage)
+							.Take(rowPerPage).AsEnumerable();
+
+			int indexCollor = 0;
+		
+			<div class="metro-section size4" id="section-general">
+				@foreach (var post in posts)
+				{
+					<a href="/post/@post.DatePublished.ToString("dd/MM/yyyy")/@post.TitleUrl" class="tile @ClassCssBackgroundColor.BackgroundColors[indexCollor]">
+						<div class="tile-announce">
+							<div class="announce-content">
+								@ImageContent.GetFristImage(post.Content)
+							</div>
+							<div class="announce-description">
+								<div class="label @ClassCssLabelColors.LabelColors[indexCollor]">@post.DatePublished.ToString("dd/MM/yyyy")<b class="stick"></b></div>
+
+								<div class="text" style="font-size: 0.9em">@post.Title</div>
+							</div>
+						</div>
+					</a>						
+					indexCollor++;
+				}
+			</div>
+		
+			page++;
+		}
+	}
+</div>

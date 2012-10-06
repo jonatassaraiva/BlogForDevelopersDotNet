@@ -1,0 +1,23 @@
+shBrushAS3.js  AS3 actionscript3 as3 
+shBrushBash.js  Bash bash shell 
+shBrushColdFusion.js 
+shBrushCpp.js  Cpp cpp c C C++ c++ 
+shBrushCSharp.js  CSharp c# c-sharp csharp 
+shBrushCss.js  CSS css 
+shBrushDelphi.js  Delphi delphi pascal pas 
+shBrushDiff.js  Diff diff patch 
+shBrushErlang.js  Erlang erl erlang 
+shBrushGroovy.js  Groovy groovy 
+shBrushJava.js  Java java 
+shBrushJavaFX.js  JavaFX jfx javafx 
+shBrushJScript.js  JScript js jscript javascript 
+shBrushPerl.js  Perl perl Perl pl 
+shBrushPhp.js  Php php 
+shBrushPlain.js  Plain text plain 
+shBrushPowerShell.js  PowerShell powershell ps 
+shBrushPython.js  Python py python 
+shBrushRuby.js  Ruby ruby rails ror rb 
+shBrushScala.js  Scala scala 
+shBrushSql.js  Sql sql 
+shBrushVb.js  Vb vb vbnet 
+shBrushXml.js  Xml xml xhtml xslt html 

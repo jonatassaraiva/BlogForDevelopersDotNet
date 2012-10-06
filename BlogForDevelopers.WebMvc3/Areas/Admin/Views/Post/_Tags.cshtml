@@ -1,0 +1,14 @@
+﻿@model IEnumerable<BlogForDevelopers.Domain.ObjectValue.Tag>
+<div id="list-tags" class="mws-form mws-form-row scroll-pane">
+	<div class="mws-form-item clearfix">
+		<ul class="mws-form-list inline">
+			@foreach (var item in Model)
+			{
+				<li>
+					<input id="tag-@item.Name" type="checkbox" name="tag-@item.Name" value="@item.Name">
+					<label for="tag-@item.Name">@item.Name</label>
+				</li>
+			}
+		</ul>
+	</div>
+</div>

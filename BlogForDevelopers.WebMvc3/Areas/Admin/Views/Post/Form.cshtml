@@ -1,0 +1,97 @@
+﻿@{
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model BlogForDevelopers.Domain.Entities.Post
+@section scripts{
+	<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Content/plugins/validate/jquery.validate-min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Scripts/Plugins/jqueryFileStyle/jquery.filestyle.custom.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Scripts/Plugins/jqueryForm/jquery.form.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Scripts/Plugins/tiny_mce/tiny_mce.js")"></script>
+
+	<script type="text/javascript" src="/Areas/Admin/Scripts/Views/TextEditor/uploadImage.js"></script>
+	<script type="text/javascript" src="/Areas/Admin/Scripts/Views/Post/createPost.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            createPost.init();
+            createPost.buildTags('@Html.Raw(BlogForDevelopers.WebMvc3.App_Helpers.TagHelper.GetContent(Model.Tags))');
+        });
+    </script>
+}
+
+<!-- dialog of tags -->
+<div id="mws-jui-dialog-tags" style="display: none">
+	<div class="mws-dialog-inner">
+		<div class="scroll-pane">
+			@Html.Partial("_Tags", (IEnumerable<BlogForDevelopers.Domain.ObjectValue.Tag>)ViewBag.Tags)
+		</div>
+	</div>
+</div>
+
+<!-- dialog of add image -->
+<div id="mws-jui-dialog-upload" style="display: none">
+	<div id="mws-dialog-inner-upload" class="mws-dialog-inner">
+	</div>
+</div>
+
+<div class="mws-panel grid_8">
+	<div class="mws-panel-header">
+		<span class="mws-i-24 i-text-styling-3">@ViewBag.Title</span>
+
+	</div>
+	<div class="mws-panel-body">
+		@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "createPost", @class = "mws-form" }))
+        {
+			<div id="mws-validate-error" class="mws-form-message error" style="display: none;"></div>
+			<div class="mws-form-row">
+				@Html.LabelFor(m => m.Title)
+				<div class="mws-form-item">
+					@Html.TextBoxFor(m => m.Title, new { @class = "mws-textinput" })
+				</div>
+			</div>
+            <div class="mws-form-row">
+				@Html.Label("Title url")
+				<div class="mws-form-item">
+					@Html.TextBoxFor(m => m.TitleUrl, new { @class = "mws-textinput" })
+				</div>
+			</div>
+			<div class="mws-form-row">
+				<input type="button" id="mws-growl-btn-add-image" class="mws-button gray" value="Add Image">
+				<div class="mws-form-item">
+					@Html.TextAreaFor(m => m.Content, new { @class = "required", style="width: 100%; height: 500px;"})
+				</div>
+			</div>
+
+			<div class="mws-form-row left">
+				<input type="button" id="mws-growl-btn-tags" class="mws-button gray" value="Add Tag">
+				<div class="mws-form-item">
+					<textarea id="tags" name="tags">
+					</textarea>
+					<b>* separate tags by ,</b> (Ex: Sports<b>,</b> Movies<b>,</b> Cine)
+				</div>
+			</div>
+
+			<div class="mws-form-row">
+				<label>Options:</label>
+				<div class="mws-form-item clearfix">
+					<ul class="mws-form-list inline">
+						<li>
+						@Html.CheckBoxFor(m => m.Published)
+						@Html.LabelFor(m => m.Published)
+						<li />
+						<li>
+							@Html.CheckBoxFor(m => m.EnableComment)
+							@Html.LabelFor(m => m.EnableComment)
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="mws-button-row">
+				<input type="submit" value="Submit" class="mws-button red" />
+			</div>
+    }
+	</div>
+</div>

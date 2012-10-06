@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <ContentPlace Id="9ddd1bd5-ce10-46fe-8656-cb7dc0e214cc" Published="false" Code="ContentTest" DateCreated="2012-08-31T18:12:29.741169-03:00" Type="Agenda">
+    <Content>This is the &lt;b&gt; content of content place &lt;/b&gt;</Content>
+    <Title>This is a title</Title>
+  </ContentPlace>
+</Root>

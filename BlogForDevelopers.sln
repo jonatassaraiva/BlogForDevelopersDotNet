@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogForDevelopers.Web.Tests", "BlogForDevelopers.Web.Tests\BlogForDevelopers.Web.Tests.csproj", "{AE6DF15F-BC83-4028-ADA6-1719E3B5BDFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{EFC946EC-D5D2-490E-A025-7834073DA6EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{EA8B072C-0BF0-4CC4-B868-ED5BE2027D2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogForDevelopers.Domain", "BlogForDevelopers.Domain\BlogForDevelopers.Domain.csproj", "{40ED3A92-6C3D-4FEB-BEEC-FEE3EA5A6C0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogForDevelopers.Domain.Tests", "BlogForDevelopers.Domain.Tests\BlogForDevelopers.Domain.Tests.csproj", "{6D305229-68F5-4CF1-AEF8-411416624248}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{4E198882-6ABB-48DE-BA51-5F51BF59923C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogForDevelopers.Repository", "BlogForDevelopers.Repository\BlogForDevelopers.Repository.csproj", "{DDA2EACD-4DF2-437A-A66B-98C6CEAC35B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogForDevelopers.Repository.Tests", "BlogForDevelopers.Repository.Tests\BlogForDevelopers.Repository.Tests.csproj", "{46D918A8-62D9-4076-A40D-9D66191E8A21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogForDevelopers.WebMvc3", "BlogForDevelopers.WebMvc3\BlogForDevelopers.WebMvc3.csproj", "{B01A561E-2251-44D0-8549-2124823D8B2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE6DF15F-BC83-4028-ADA6-1719E3B5BDFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE6DF15F-BC83-4028-ADA6-1719E3B5BDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE6DF15F-BC83-4028-ADA6-1719E3B5BDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE6DF15F-BC83-4028-ADA6-1719E3B5BDFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40ED3A92-6C3D-4FEB-BEEC-FEE3EA5A6C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40ED3A92-6C3D-4FEB-BEEC-FEE3EA5A6C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40ED3A92-6C3D-4FEB-BEEC-FEE3EA5A6C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40ED3A92-6C3D-4FEB-BEEC-FEE3EA5A6C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D305229-68F5-4CF1-AEF8-411416624248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D305229-68F5-4CF1-AEF8-411416624248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D305229-68F5-4CF1-AEF8-411416624248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D305229-68F5-4CF1-AEF8-411416624248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDA2EACD-4DF2-437A-A66B-98C6CEAC35B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA2EACD-4DF2-437A-A66B-98C6CEAC35B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA2EACD-4DF2-437A-A66B-98C6CEAC35B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA2EACD-4DF2-437A-A66B-98C6CEAC35B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46D918A8-62D9-4076-A40D-9D66191E8A21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D918A8-62D9-4076-A40D-9D66191E8A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D918A8-62D9-4076-A40D-9D66191E8A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D918A8-62D9-4076-A40D-9D66191E8A21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B01A561E-2251-44D0-8549-2124823D8B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B01A561E-2251-44D0-8549-2124823D8B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B01A561E-2251-44D0-8549-2124823D8B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B01A561E-2251-44D0-8549-2124823D8B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AE6DF15F-BC83-4028-ADA6-1719E3B5BDFC} = {EFC946EC-D5D2-490E-A025-7834073DA6EC}
+		{B01A561E-2251-44D0-8549-2124823D8B2E} = {EFC946EC-D5D2-490E-A025-7834073DA6EC}
+		{40ED3A92-6C3D-4FEB-BEEC-FEE3EA5A6C0B} = {EA8B072C-0BF0-4CC4-B868-ED5BE2027D2A}
+		{6D305229-68F5-4CF1-AEF8-411416624248} = {EA8B072C-0BF0-4CC4-B868-ED5BE2027D2A}
+		{DDA2EACD-4DF2-437A-A66B-98C6CEAC35B8} = {4E198882-6ABB-48DE-BA51-5F51BF59923C}
+		{46D918A8-62D9-4076-A40D-9D66191E8A21} = {4E198882-6ABB-48DE-BA51-5F51BF59923C}
+	EndGlobalSection
+EndGlobal

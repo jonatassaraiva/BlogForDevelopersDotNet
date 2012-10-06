@@ -1,0 +1,73 @@
+﻿@{
+	ViewBag.Title = "Index";
+	ViewBag.Background = "#cccccc";
+	ViewBag.MetroScroll = "metro-scroll";
+	ViewBag.ShowMessageFooter = true;
+}
+
+@using BlogForDevelopers.WebMvc3.App_Code
+
+<div class="metro-sections">
+
+	<div class="metro-section size3">
+		<h1 style="font-size: 3em">&lt; It's me /&gt;</h1>
+
+		<div class="tile @ClassCssBackgroundColor.BlueDark">
+			<div class="tile-header" style="color: #fff">Formado em Sistemas de Informação</div>
+
+			<div class="tile-icon">
+				<img src="@Url.Content("~/Content/img/graduationo-96.png")" />
+			</div>
+		</div>
+
+		<div class="tile tile-double @ClassCssBackgroundColor.Darken">
+			<div class="tile-header" style="color: #fff">Entusiasta em Arquitetura de Software / XP / SCRUM / Ágil / ASP.NET MVC / Web API / WCF / C# / Cloud Computing</div>
+		</div>
+
+		<a href="http://terra.com.br" target="_blank" class="tile tile-double" style="background-color: #FF9900">
+			<div class="tile-header" style="color: #fff">Desenvolvedor desde 2006, trabalha com tecnologias de publicidade no Terra Network</div>
+
+			<div class="tile-icon">
+				<img src="@Url.Content("~/Content/img/terra.png")" style="width: 103px" />
+			</div>
+		</a>
+
+		<div class="tile ">
+			<div class="tile-announce">
+				<div class="announce-content">
+					<img src="@Url.Content("~/Content/img/Jonatas-Saraiva.jpg")" />
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="metro-section size4">
+		<h1 style="font-size: 3em">&lt; And /&gt;</h1>
+
+		<div class="tile @ClassCssBackgroundColor.Green">
+			<div class="tile-icon-large">
+				<img src="@Url.Content("~/Content/img/rss-feed-96.png")" />
+			</div>
+		</div>
+
+		<div class="tile tile-double @ClassCssBackgroundColor.Green">
+			<div class="tile-header" style="color: #fff;">Neste blog vou compartilhar e registar assuntos que estão na orbita do desenvolvimento de software e da plataforma .NET</div>
+		</div>
+		
+
+		<a class="tile @ClassCssBackgroundColor.Purple" target="_blank" href="http://www.guma-rs.org/" >
+			
+			<div class="tile-icon-large"> <h2 style="margin-top: 35px; color: #fff;">GUMA-RS</h2></div>
+			
+			<div class="tile-label">Membro organizador</div>
+		</a>
+
+		<a class="tile @ClassCssBackgroundColor.BlueDark" target="_blank" href="http://devrs.net" >
+			
+			<div class="tile-icon-large"> <h2 style="margin-top: 35px; color: #fff; font-size:1.8em">DevRS.NET</h2></div>
+			
+			<div class="tile-label">Membro organizador</div>
+		</a>
+	</div>
+</div>

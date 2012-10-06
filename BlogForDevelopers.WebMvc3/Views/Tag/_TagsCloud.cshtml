@@ -1,0 +1,25 @@
+﻿@model IDictionary<string, int>
+
+@using BlogForDevelopers.WebMvc3.App_Code
+
+<div class="metro-section size3">
+	<a href="#">
+		<h3>Tags</h3>
+	</a>
+
+	<div class="tile tile-triple tile-triple-vertical @BlogForDevelopers.WebMvc3.App_Code.ClassCssBackgroundColor.Blue">
+		<div class="tagCloud">
+
+			@if (Model.Count() > 0)
+			{
+				var max = Model.Max(m=>m.Value);
+
+				foreach(var tagCount in Model)
+				{
+					<a href="/tag/@tagCount.Key.ToLower()" class="@ClassCssTagCloud.GetClass(max, tagCount.Value)">@tagCount.Key</a>
+				}	
+			}
+
+		</div>
+	</div>
+</div>

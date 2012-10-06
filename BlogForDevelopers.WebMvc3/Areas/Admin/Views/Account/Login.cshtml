@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- Required Stylesheets -->
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/reset.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/text.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/fonts/ptsans/stylesheet.css")" media="screen" />
+
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/core/form.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/core/login.css")" media="screen" />
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/core/button.css")" media="screen" />
+	
+	<!-- Theme Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/Admin/Content/css/mws.theme.css")" media="screen" />
+
+	<!-- JavaScript Plugins -->
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.0.min.js")"></script>
+
+	<!-- jQuery-UI Dependent Scripts -->
+	<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Content/js/jquery-ui-effecs.min.js")"></script>
+
+	<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Content/plugins/placeholder/jquery.placeholder-min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Content/plugins/validate/jquery.validate-min.js")"></script>
+
+	<script type="text/javascript" src="@Url.Content("~/Areas/Admin/Content/js/login.js")"></script>
+
+	<title>Admin - Blog for Developers - Login</title>
+
+</head>
+
+<body>
+
+	<div id="mws-login-wrapper">
+		<div id="mws-login">
+			<h1>Login</h1>
+			@if (ViewBag.Mensage != null)
+			{
+				<h1>@ViewBag.Mensage</h1>
+			}
+			<div class="mws-login-lock">
+				<img src="@Url.Content("~/Areas/Admin/Content/css/icons/24/locked-2.png")" alt="" /></div>
+			<div id="mws-login-form">
+				<form class="mws-form" action="" method="post">
+					<div class="mws-form-row">
+						<div class="mws-form-item large">
+							<input type="text" name="username" class="mws-login-username mws-textinput required" placeholder="username" />
+						</div>
+					</div>
+					<div class="mws-form-row">
+						<div class="mws-form-item large">
+							<input type="password" name="password" class="mws-login-password mws-textinput required" placeholder="password" />
+						</div>
+					</div>
+					<div class="mws-form-row mws-inset">
+						<ul class="mws-form-list inline">
+							<li>
+								<input type="checkbox" />
+								<label>Remember me</label></li>
+						</ul>
+					</div>
+					<div class="mws-form-row">
+						<input type="submit" value="Login" class="mws-button black mws-login-button" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

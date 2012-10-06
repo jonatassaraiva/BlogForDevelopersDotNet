@@ -1,0 +1,48 @@
+﻿@model IList<BlogForDevelopers.Domain.Entities.Post>
+@using BlogForDevelopers.WebMvc3.App_Code
+
+@{
+	ViewBag.Title = "Index";
+	ViewBag.Background = "#cccccc";
+	ViewBag.MetroScroll = "metro-scroll";
+}
+
+<div class="metro-section size4" id="section-general">
+	@{
+		string titleClassCss = string.Empty;
+
+		for (int i = 0; i < Model.Count; i++)
+		{
+			if (i == 0)
+			{
+				titleClassCss = string.Concat("tile tile-double tile-double-vertical ", ClassCssBackgroundColor.Blue);
+			}
+			else
+			{
+				titleClassCss = string.Concat("tile ", ClassCssBackgroundColor.BackgroundColors[i]);
+			}
+		
+		<a href="/post/@Model[i].DatePublished.ToString("dd/MM/yyyy")/@Model[i].TitleUrl" class="@titleClassCss">
+			<div class="tile-announce">
+				<div class="announce-content">
+					@ImageContent.GetFristImage(Model[i].Content)
+				</div>
+				<div class="announce-description">
+					<div class="label @ClassCssLabelColors.LabelColors[i]">@Model[i].DatePublished.ToString("dd/MM/yyyy")<b class="stick"></b></div>
+
+					<div class="text" style="font-size: 0.9em">@Model[i].Title</div>
+				</div>
+			</div>
+		</a>
+		}
+
+		if (Model.Count >= 8)
+		{
+			<a class="tile @ClassCssBackgroundColor.OrangeDark" href="/posts">
+				<div class="tile-icon-large">
+					<h2 style="margin-top: 35px; color: #fff;">{ Todos }</h2>
+				</div>
+			</a>
+		}
+	}
+</div>
